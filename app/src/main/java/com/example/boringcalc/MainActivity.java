@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         buttonDivision = (Button) findViewById(R.id.button16);
         buttonC = (Button) findViewById(R.id.button18);
         buttonEqual = (Button) findViewById(R.id.button11);
-        value_text = (EditText) findViewById(R.id.textbox);
+        value_text = (EditText) findViewById(R.id.text_box);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
