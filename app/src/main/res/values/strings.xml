@@ -16,4 +16,5 @@
     <string name="button_div">/</string>
     <string name="button_dec">.</string>
     <string name="button_eq">=</string>
+    <string name="button_clr">C</string>
 </resources>

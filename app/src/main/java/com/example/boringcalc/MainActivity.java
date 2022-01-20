@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSub = (Button) findViewById(R.id.button14);
         buttonMul = (Button) findViewById(R.id.button15);
         buttonDivision = (Button) findViewById(R.id.button16);
-        //buttonC = (Button) findViewById(R.id.buttonC);
+        buttonC = (Button) findViewById(R.id.button18);
         buttonEqual = (Button) findViewById(R.id.button11);
         value_text = (EditText) findViewById(R.id.textbox);
 
