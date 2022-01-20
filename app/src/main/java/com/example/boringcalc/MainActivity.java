@@ -14,30 +14,30 @@ public class MainActivity extends AppCompatActivity {
     EditText value_text;
 
     float val1, val2;
-    boolean add, sub, mul, div;
+    boolean add, sub, mul, div, dec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button0 = (Button) findViewById(R.id.button12);
-        button1 = (Button) findViewById(R.id.button);
-        button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button3);
-        button4 = (Button) findViewById(R.id.button4);
-        button5 = (Button) findViewById(R.id.button5);
-        button6 = (Button) findViewById(R.id.button6);
-        button7 = (Button) findViewById(R.id.button7);
-        button8 = (Button) findViewById(R.id.button8);
-        button9 = (Button) findViewById(R.id.button9);
-        buttonDec = (Button) findViewById(R.id.button10);
-        buttonAdd = (Button) findViewById(R.id.button13);
-        buttonSub = (Button) findViewById(R.id.button14);
-        buttonMul = (Button) findViewById(R.id.button15);
-        buttonDivision = (Button) findViewById(R.id.button16);
-        buttonC = (Button) findViewById(R.id.button18);
-        buttonEqual = (Button) findViewById(R.id.button11);
-        value_text = (EditText) findViewById(R.id.text_box);
+        button0 = findViewById(R.id.button12);
+        button1 = findViewById(R.id.button);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
+        button4 = findViewById(R.id.button4);
+        button5 = findViewById(R.id.button5);
+        button6 = findViewById(R.id.button6);
+        button7 = findViewById(R.id.button7);
+        button8 = findViewById(R.id.button8);
+        button9 = findViewById(R.id.button9);
+        buttonDec = findViewById(R.id.button10);
+        buttonAdd = findViewById(R.id.button13);
+        buttonSub = findViewById(R.id.button14);
+        buttonMul = findViewById(R.id.button15);
+        buttonDivision = findViewById(R.id.button16);
+        buttonC = findViewById(R.id.button18);
+        buttonEqual = findViewById(R.id.button11);
+        value_text = findViewById(R.id.text_box);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,5 +105,85 @@ public class MainActivity extends AppCompatActivity {
                 value_text.setText(value_text.getText() + ".");
             }
         });
+        buttonC.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                value_text.setText("");}
+        });
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (value_text == null) {
+                    value_text.setText("");
+                } else {
+                    val1 = Float.parseFloat(value_text.getText() + "");
+                     add = true;
+                    value_text.setText(null);
+                }
+            }
+        });
+
+        buttonSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                val1 = Float.parseFloat(value_text.getText() + "");
+                sub = true;
+                value_text.setText(null);
+            }
+        });
+
+        buttonMul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                val1 = Float.parseFloat(value_text.getText() + "");
+                mul = true;
+                value_text.setText(null);
+            }
+        });
+
+        buttonDivision.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                val1 = Float.parseFloat(value_text.getText() + "");
+                div = true;
+                value_text.setText(null);
+            }
+        });
+
+        buttonEqual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                val2 = Float.parseFloat(value_text.getText() + "");
+
+                if ( add == true) {
+                    value_text.setText(val1 + val2 + "");
+                     add = false;
+                }
+
+                if (sub == true) {
+                    value_text.setText(val1 - val2 + "");
+                    sub = false;
+                }
+
+                if (mul == true) {
+                    value_text.setText(val1 * val2 + "");
+                    mul = false;
+                }
+
+                if (div == true) {
+                    value_text.setText(val1 / val2 + "");
+                    div = false;
+                }
+            }
+        });
+
+        buttonC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                value_text.setText("");
+            }
+        });
     }
 }
+
