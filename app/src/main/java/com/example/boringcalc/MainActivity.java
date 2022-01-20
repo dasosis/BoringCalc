@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
             buttonMul, buttonDec, buttonEqual, buttonC;
     EditText value_text;
 
+
+
     float val1, val2;
     boolean add, sub, mul, div, dec;
 
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         buttonC = findViewById(R.id.button18);
         buttonEqual = findViewById(R.id.button11);
         value_text = findViewById(R.id.text_box);
+        final boolean[] hasDecimal = {false};
+
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,13 +106,17 @@ public class MainActivity extends AppCompatActivity {
         buttonDec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (hasDecimal[0])
+                        return;
+                hasDecimal[0] = true;
                 value_text.setText(value_text.getText() + ".");
             }
         });
         buttonC.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                value_text.setText("");}
+                value_text.setText("");
+                hasDecimal[0] = false;}
         });
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                     val1 = Float.parseFloat(value_text.getText() + "");
                      add = true;
                     value_text.setText(null);
+                    hasDecimal[0] = false;
                 }
             }
         });
@@ -130,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 val1 = Float.parseFloat(value_text.getText() + "");
                 sub = true;
                 value_text.setText(null);
+                hasDecimal[0] = false;
             }
         });
 
@@ -139,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 val1 = Float.parseFloat(value_text.getText() + "");
                 mul = true;
                 value_text.setText(null);
+                hasDecimal[0] = false;
             }
         });
 
@@ -148,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 val1 = Float.parseFloat(value_text.getText() + "");
                 div = true;
                 value_text.setText(null);
+                hasDecimal[0] = false;
             }
         });
 
@@ -175,13 +187,6 @@ public class MainActivity extends AppCompatActivity {
                     value_text.setText(val1 / val2 + "");
                     div = false;
                 }
-            }
-        });
-
-        buttonC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                value_text.setText("");
             }
         });
     }
